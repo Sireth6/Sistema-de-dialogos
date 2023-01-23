@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Dialogue : MonoBehaviour
 {
+    [SerializeField] private GameObject dialogueMark; 
     private bool isPlayerInRange;
 
     // Update is called once per frame
@@ -16,7 +17,7 @@ public class Dialogue : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             isPlayerInRange = true;
-            Debug.Log("Se puede iniciar un diálo");
+            dialogueMark.SetActive(true);
         }
     }
 
@@ -25,7 +26,8 @@ public class Dialogue : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             isPlayerInRange = false;
-            Debug.Log("No se puede iniciar un dialogo");
+            dialogueMark.SetActive(false);
+    
         }
     }
 }
