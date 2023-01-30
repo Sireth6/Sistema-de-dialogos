@@ -23,6 +23,10 @@ public class Dialogue : MonoBehaviour
             {
                StarDialogue();
             }
+            else if (dialogueText.text == dialogueLines[lineIndex])
+            {
+                NextDialogueLine();
+            }
         }
     }
     private void StarDialogue()
@@ -39,7 +43,7 @@ public class Dialogue : MonoBehaviour
         lineIndex++;
         if(lineIndex < dialogueLines.Length)
         {
-            StarCoroutine(ShowLine());
+            StartCoroutine(ShowLine());
         }
         else
         {
