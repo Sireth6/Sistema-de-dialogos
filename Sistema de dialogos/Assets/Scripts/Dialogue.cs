@@ -5,6 +5,7 @@ using TMPro;
 public class Dialogue : MonoBehaviour
 {
     [SerializeField] private GameObject dialogueMark;
+    [SerializeField] private GameObject Press;
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TMP_Text dialogueText;
     [SerializeField, TextArea(4, 6)] private string[] dialogueLines;
@@ -40,6 +41,7 @@ public class Dialogue : MonoBehaviour
         didDialogueStart = true;
         dialoguePanel.SetActive(true);
         dialogueMark.SetActive(false);
+        Press.SetActive(false);
         lineIndex = 0;
         Time.timeScale = 0f;
         StartCoroutine(ShowLine());
@@ -57,6 +59,7 @@ public class Dialogue : MonoBehaviour
             didDialogueStart = false;
             dialoguePanel.SetActive(false);
             dialogueMark.SetActive(true);
+            Press.SetActive(true);
             Time.timeScale = 1f;
         }
     }
@@ -78,6 +81,7 @@ public class Dialogue : MonoBehaviour
         {
             isPlayerInRange = true;
             dialogueMark.SetActive(true);
+            Press.SetActive(true);
         }
     }
 
@@ -87,7 +91,9 @@ public class Dialogue : MonoBehaviour
         {
             isPlayerInRange = false;
             dialogueMark.SetActive(false);
-    
+            Press.SetActive(false);
+
+
         }
     }
 }
